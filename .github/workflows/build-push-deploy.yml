@@ -3,6 +3,12 @@ name: Build, push and Deploy
 on:
   # Allow to trigger manually and select branch
   workflow_dispatch:
+    inputs:
+      image_tag:
+        description: "Image TAG"
+        required: true
+        default: 'latest'
+        type: string
 
   # Trigger on push to develop branch
 #  push:
@@ -36,4 +42,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ghcr.io/${{ github.repository }}:latest
+          tags: ghcr.io/igor-knezevic-vegait:${{ github.event.inputs.image_tag }}
