@@ -1,7 +1,7 @@
 name: Build, push and Deploy
 
 on:
-  # Allow to trigger manually and select branch
+  # Allow to trigger manually
   workflow_dispatch:
     inputs:
       image_tag:
