@@ -1,4 +1,4 @@
-FROM node:lts-alpine3.19 as builder
+FROM node:18-alpine as builder
 COPY . .
 RUN npm ci
 
