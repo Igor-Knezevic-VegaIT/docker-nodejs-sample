@@ -1,0 +1,28 @@
+services:
+  web:
+    image: ghcr.io/igor-knezevic-vegait/docker-nodejs-sample/test-app:latest
+    depends_on:
+      - db
+    environment:
+      POSTGRES_HOST: db
+      POSTGRES_USER: test_app
+      POSTGRES_PASSWORD: test_app
+      POSTGRES_DB: test_db
+    ports:
+      - "3000:3000"
+    links:
+      - db
+  db:
+    image: postgres:14.1-alpine
+    environment:
+      POSTGRES_USER: test_app
+      POSTGRES_PASSWORD: "test_app"
+      POSTGRES_DB: test_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - db:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/create_tables.sql
+volumes:
+  db:
+    driver: local
