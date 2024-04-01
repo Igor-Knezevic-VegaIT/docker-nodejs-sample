@@ -42,4 +42,4 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          tags: ghcr.io/igor-knezevic-vegait:${{ github.event.inputs.image_tag }}
+          tags: ghcr.io/igor-knezevic-vegait/docker-nodejs-sample/test-app:${{ github.event.inputs.image_tag }}
