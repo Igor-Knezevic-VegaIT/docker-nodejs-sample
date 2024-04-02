@@ -1,4 +1,4 @@
-name: Build, push and Deploy
+name: Container builder
 
 on:
   # Allow to trigger manually
@@ -10,7 +10,7 @@ on:
         default: 'latest'
         type: string
 
-  # Trigger on push to develop branch
+  # Trigger on tag push
   push:
     tags:
       - 'v[0-9]+.[0-9]+.[0-9]+'
